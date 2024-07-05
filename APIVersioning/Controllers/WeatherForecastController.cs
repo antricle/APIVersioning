@@ -21,9 +21,8 @@ namespace APIVersioning.Controllers
             _logger = logger;
         }
 
-        //[HttpGet(Name = "GetWeatherForecast")]
         [HttpGet, MapToApiVersion("1")]
-        [HttpGet(Name = "GetWeatherForecast")]
+        [Route("[action]")]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
@@ -36,7 +35,7 @@ namespace APIVersioning.Controllers
         }
 
         [HttpGet, MapToApiVersion("2")]
-        [HttpGet(Name = "GetWeatherForecast")]
+        [Route("[action]")]
         public IEnumerable<WeatherForecast> GetV2()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

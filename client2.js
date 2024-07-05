@@ -7,7 +7,7 @@ createApp({
         }
     },
     mounted() {
-        axios.get("http://localhost:5099/WeatherForecast/v2").then(response => {
+        axios.get("http://localhost:5099/api/v1/WeatherForecast/getv2").then(response => {
             this.results = response.data
         })
     }
